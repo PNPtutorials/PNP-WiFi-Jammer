@@ -1,7 +1,3 @@
-mkdir /root/PNP-temp
-
-cd /root/PNP-temp
-
 apt-get update
 
 apt-get autoremove libnl-3-dev 
@@ -63,11 +59,12 @@ python setup.py install
 #svn co http://svn.aircrack-ng.org/trunk/scripts/airdrop-ng #via aircrack-ng
 
 echo "*************** Cloning aircrack-ng ***********************"
+cd ~
 git clone https://github.com/PNPtutorials/aircrack-ng.git
 
 sudo ln -s /usr/local/lib/liborcon2-2.0.0.so /usr/lib
 
-cd aircrack-ng/scripts/airdrop-ng/old-installers 
+cd ~/aircrack-ng/scripts/airdrop-ng/old-installers 
 
 mv "install.py" "install-1.py"
 #pip install urllib
@@ -80,6 +77,5 @@ echo "*************** Setting up airdrop-ng ***********************"
 
 python install.py #replace install file link expired
 
-cd /root/PNP-temp/lorcon/pylorcon2/aircrack-ng/scripts/airdrop-ng/
+cd ~/aircrack-ng/scripts/airdrop-ng/
 sudo python setup.py install
-
