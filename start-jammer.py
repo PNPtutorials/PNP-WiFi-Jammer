@@ -17,14 +17,12 @@ def first(inter):
                                         outfile.write(line)
         os.remove('./pnp-01.csv')
 def second(inter):
-        process2 = subprocess.Popen(["sudo", "airdrop-ng", "-i", inter, "-t", "temp.csv",
-"-r","rulefile.txt"])
+        process2 = subprocess.Popen(["sudo", "airdrop-ng", "-i", inter, "-t", "temp.csv","-r","rulefile.txt"])
         time.sleep(120)
         os.kill(process2.pid, signal.SIGTERM)
         os.remove('./temp.csv')
 def first1():
-        process1 = subprocess.Popen(["sudo", "airodump-ng", "wlan0", "--write", "pnp", "--output-format",
-"csv"])
+        process1 = subprocess.Popen(["sudo", "airodump-ng", "wlan0", "--write", "pnp", "--output-format","csv"])
         time.sleep(30)
         os.kill(process1.pid, signal.SIGTERM)
         filenames = ['pnp-01.csv']
@@ -35,8 +33,7 @@ def first1():
                                         outfile.write(line)
         os.remove('./pnp-01.csv')
 def second1():
-        process2 = subprocess.Popen(["sudo", "airdrop-ng", "-i", "wlan0", "-t", "temp.csv",
-"-r","rulefile.txt"])
+        process2 = subprocess.Popen(["sudo", "airdrop-ng", "-i", "wlan0", "-t", "temp.csv","-r","rulefile.txt"])
         time.sleep(120)
         os.kill(process2.pid, signal.SIGTERM)
         os.remove('./temp.csv')
@@ -58,7 +55,7 @@ if __name__ == '__main__':
                                 second(intermon)
                 elif (machine == "raspberrypi3"):
 				os.system("sudo insmod /root/brcmfmac.ko")
-                        os.system("sudo ifconfig wlan0 up")
+                        	os.system("sudo ifconfig wlan0 up")
                         while(1):
                                 first1()
                                 second1()
