@@ -39,11 +39,11 @@ def second1():
         os.remove('./temp.csv')
 
 if __name__ == '__main__':
-		try:                
-				os.system("rm -rf pnp*.csv")
+	try:                
+		os.system("rm -rf pnp*.csv")
                 os.system("rm -rf temp*.csv")
                 machine = platform.uname()[4]
-				machine1 = platform.uname()[1]
+		machine1 = platform.uname()[1]
                 #print "Platform Name\t:\t"+ machine
                 #os.system("echo","Choose your wireless interface") os.system("iwconfig")
                 interface = sys.argv[1]
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                                 first(intermon)
                                 second(intermon)
                 elif (machine1 == "raspberrypi3"):
-						os.system("sudo insmod /root/brcmfmac.ko")
+			os.system("sudo insmod /root/brcmfmac.ko")
                         os.system("sudo ifconfig wlan0 up")
                         while(1):
                                 first1()
@@ -64,5 +64,5 @@ if __name__ == '__main__':
                 else:
                         print "System architecture not found"
 		except IndexError:
-				print "[*]\t Invalid Command:\n[*]\t Usage: python start-jammer.py <wireless interface>\n[*]\t python start-jammer.py wlan0"
+			print "[*]\t Invalid Command:\n[*]\t Usage: python start-jammer.py <wireless interface>\n[*]\t python start-jammer.py wlan0"
 		
