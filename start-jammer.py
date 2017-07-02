@@ -63,6 +63,6 @@ if __name__ == '__main__':
                                 second1()
                 else:
                         print "System architecture not found"
-		except IndexError:
-			print "[*]\t Invalid Command:\n[*]\t Usage: python start-jammer.py <wireless interface>\n[*]\t python start-jammer.py wlan0"
+	except IndexError:
+		print "[*]\t Invalid Command:\n[*]\t Usage: python start-jammer.py <wireless interface>\n[*]\t python start-jammer.py wlan0"
 		
