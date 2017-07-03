@@ -5,36 +5,42 @@ echo "**************** Installing libpcap-dev libnl-dev python-dev gcc g++ make 
 sudo apt-get install libnl1 libnl-dev libpcap-dev python-dev gcc g++ make git subversion libssl-dev libpcap-dev libpcre3-dev libsqlite3-dev pkg-config python-dev
 echo "********************choosing machine architecture******************"
 
+arch=$(getconf LONG_BIT)
+
 #arch=$(uname -m)
 #arch1=$(uname -n)
+#arch1=$(getconf LONG_BIT)
 
-#if ["$arch" == 'x86_64' ] 
-#then
-	#sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_amd64.deb
-	#sudo dpkg -i libnl1_1.1-7+deb7u1_amd64.deb	
-	#wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl-dev_1.1-7+deb7u1_amd64.deb
-	#sudo dpkg -i libnl-dev_1.1-7+deb7u1_amd64.deb
-	#sudo rm libnl1_1.1-7+deb7u1_amd64.deb
-	#sudo rm libnl-dev_1.1-7+deb7u1_amd64.deb
-#elif ["$arch" == 'i686' ] 
-#then
-	#sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_i386.deb
-	#sudo dpkg -i libnl1_1.1-7+deb7u1_i386.deb	
-	#sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl-dev_1.1-7+deb7u1_i386.deb
-	#sudo dpkg -i libnl-dev_1.1-7+deb7u1_i386.deb
-	#sudo rm libnl1_1.1-7+deb7u1_i386.deb
-	#sudo rm libnl-dev_1.1-7+deb7u1_i386.deb
-#elif ["$arch1" == 'raspberrypi3' ] 
-#then
-	#sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_armhf.deb
-	#sudo dpkg -i libnl1_1.1-7+deb7u1_armhf.deb
-	#sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl-dev_1.1-7+deb7u1_armhf.deb 
-	#sudo dpkg -i  libnl-dev_1.1-7+deb7u1_armhf.deb
-	#sudo rm libnl1_1.1-7+deb7u1_armhf.deb
-	#sudo rm libnl-dev_1.1-7+deb7u1_armhf.deb
-#else
-	#echo "System architecture not found."
-#fi
+if [  `uname -m` = "x86_64" ]; 
+then
+sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_amd64.deb
+sudo dpkg -i libnl1_1.1-7+deb7u1_amd64.deb
+wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl-dev_1.1-7+deb7u1_amd64.deb
+sudo dpkg -i libnl-dev_1.1-7+deb7u1_amd64.deb
+sudo rm libnl1_1.1-7+deb7u1_amd64.deb
+sudo rm libnl-dev_1.1-7+deb7u1_amd64.deb
+
+elif [ `uname -m` = "i686" ];
+then
+sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_i386.deb
+sudo dpkg -i libnl1_1.1-7+deb7u1_i386.deb
+sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl-dev_1.1-7+deb7u1_i386.deb
+sudo dpkg -i libnl-dev_1.1-7+deb7u1_i386.deb
+sudo rm libnl1_1.1-7+deb7u1_i386.deb
+sudo rm libnl-dev_1.1-7+deb7u1_i386.deb
+
+elif [ `uname -m` = "armv7l" ];
+then
+sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_armhf.deb
+sudo dpkg -i libnl1_1.1-7+deb7u1_armhf.deb
+sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl-dev_1.1-7+deb7u1_armhf.deb
+sudo dpkg -i libnl-dev_1.1-7+deb7u1_armhf.deb
+sudo rm libnl1_1.1-7+deb7u1_armhf.deb
+sudo rm libnl-dev_1.1-7+deb7u1_armhf.deb
+
+else
+echo "System architecture not found."
+fi
 
 sudo apt-get update
 #wget https://drive.google.com/uc?export=download&id=0ByKtlN4NOMLeSXoxTjU4Q3Fiems
@@ -71,6 +77,3 @@ echo "*************** Setting up airdrop-ng ***********************"
 sudo python install.py #replace install file link expired
 cd ~/aircrack-ng/scripts/airdrop-ng/
 sudo python setup.py install
-
-
-
