@@ -29,7 +29,7 @@ sudo dpkg -i libnl-dev_1.1-7+deb7u1_i386.deb
 sudo rm libnl1_1.1-7+deb7u1_i386.deb
 sudo rm libnl-dev_1.1-7+deb7u1_i386.deb
 
-if [  `uname -m` = "" ]; 
+if [  `uname -m` = "armv6l" ]; 
 then
 sudo http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_armel.deb
 sudo dpkg -i libnl1_1.1-7+deb7u1_armel.deb
