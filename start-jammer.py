@@ -61,6 +61,12 @@ if __name__ == '__main__':
                         while(1):
                                 first1()
                                 second1()
+		 elif (machine == "armv6l"):
+			os.system("monstart")
+                        os.system("monstart")
+                        while(1):
+                                first1()
+                                second1()		
                 else:
                         print "System architecture not found"
 	except IndexError:
