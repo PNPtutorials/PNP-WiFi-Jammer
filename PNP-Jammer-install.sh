@@ -29,6 +29,15 @@ sudo dpkg -i libnl-dev_1.1-7+deb7u1_i386.deb
 sudo rm libnl1_1.1-7+deb7u1_i386.deb
 sudo rm libnl-dev_1.1-7+deb7u1_i386.deb
 
+if [  `uname -m` = "" ]; 
+then
+sudo http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_armel.deb
+sudo dpkg -i libnl1_1.1-7+deb7u1_armel.deb
+wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl-dev_1.1-7+deb7u1_armel.deb
+sudo dpkg -i libnl-dev_1.1-7+deb7u1_armel.deb
+sudo rm libnl1_1.1-7+deb7u1_armel.deb
+sudo rm libnl-dev_1.1-7+deb7u1_armel.deb
+
 elif [ `uname -m` = "armv7l" ];
 then
 sudo wget http://security.debian.org/debian-security/pool/updates/main/libn/libnl/libnl1_1.1-7+deb7u1_armhf.deb
